@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="css/simplebar.css" type="text/css" media="all">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" type="text/css" media="all">
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -453,7 +453,7 @@
 
 				<div class="col-md-8">
 					<!-- Contact Form -->
-					<form id="contact-form" class="contact-form" method="post" action="mailto:raflyid@hotmail.com" enctype="text/plain">
+					<form id="gform" name="gform" enctype="text/plain" class="contact-form" action="https://docs.google.com/forms/d/1pIXK03m5SrAT_qaENzjHeMhx1WzU1qpkrbSqy8vIsuo/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
 						
 						<div class="messages"></div>
 						
@@ -461,7 +461,7 @@
 							<div class="column col-md-6">
 								<!-- Name input -->
 								<div class="form-group">
-									<input type="text" class="form-control" name="InputName" id="InputName" placeholder="Your name" required="required" data-error="Name is required.">
+									<input type="text" class="form-control" name="entry.194009206" id="entry.194009206" placeholder="Your name" required="required" data-error="Name is required.">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -469,7 +469,7 @@
 							<div class="column col-md-6">
 								<!-- Email input -->
 								<div class="form-group">
-									<input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email address" required="required" data-error="Email is required.">
+									<input type="email" class="form-control" id="entry.2036690494" name="entry.2036690494" placeholder="Email address" required="required" data-error="Email is required.">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -477,7 +477,7 @@
 							<div class="column col-md-12">
 								<!-- Email input -->
 								<div class="form-group">
-									<input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject" required="required" data-error="Subject is required.">
+									<input type="text" class="form-control" id="entry.128304651" name="entry.128304651" placeholder="Subject" required="required" data-error="Subject is required.">
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -485,15 +485,16 @@
 							<div class="column col-md-12">
 								<!-- Message textarea -->
 								<div class="form-group">
-									<textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Message" required="required" data-error="Message is required."></textarea>
+									<textarea name="entry.262767012" id="entry.262767012" class="form-control" rows="5" placeholder="Message" required="required" data-error="Message is required."></textarea>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 						</div>
 
-						<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default"><i class="icon-paper-plane"></i>Send Message</button><!-- Send Button -->
+						<button type="submit" class="btn btn-default"><i class="icon-paper-plane"></i>Send Message</button><!-- Send Button -->
 
 					</form>
+					<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 					<!-- Contact Form end -->
 				</div>
 
@@ -523,6 +524,24 @@
 <script src="js/contact.js"></script>
 <script src="js/validator.js"></script>
 <script src="js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+<script type="text/javascript">
+	var submitted = false;
+</script>
+<script type="text/javascript">
+    $('#gform').on('submit', function (e) {
+    $('#gform').prepend(myFunction());
+    $('#gform *').fadeOut(2000);
+    });
+</script>
+<script>
+    function myFunction() {
+    swal("Thank you!", "Your submission has been submitted", "success").then(() => {
+    location.href = 'index.html'
+    });
+}
+</script>
 
 </body>
 </html>
